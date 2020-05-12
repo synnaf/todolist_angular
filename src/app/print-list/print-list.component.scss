@@ -1,0 +1,23 @@
+ul {
+  text-align:left;
+  li {
+    font-size: 1rem;
+    list-style-type: none;
+    color:black;
+    margin-bottom: 5px;
+    input {
+      margin:10px;
+      width: 2em;
+      height: 2em;
+      background-color: #EFFDE6;
+      border-radius: 50%;
+      vertical-align: middle;
+      border: 2px solid black;
+      -webkit-appearance: none;
+      cursor: pointer;
+    }
+    input:checked {
+      background-color: darkorange;
+    }
+  }
+}
