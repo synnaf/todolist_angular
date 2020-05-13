@@ -5,12 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PrintListComponent } from './print-list/print-list.component';
 import { DataListComponent } from './data-list/data-list.component';
+import { AddTodoComponent } from './add-todo/add-todo.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PrintListComponent,
-    DataListComponent
+    DataListComponent,
+    AddTodoComponent
   ],
   imports: [
     BrowserModule,

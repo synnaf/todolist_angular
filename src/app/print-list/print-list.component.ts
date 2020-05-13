@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
+import { TodoItem } from '../models/TodoItem';
 
 @Component({
   selector: 'app-print-list',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PrintListComponent implements OnInit {
 
+  @Input() newTodo: TodoItem;
+
+  // @Output() openForm = new EventEmitter<TodoItem>();
+
   constructor() { }
 
   ngOnInit(): void {
   }
+
 
 }
