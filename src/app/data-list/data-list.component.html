@@ -1,3 +1,25 @@
-<p>data-list works!</p>
 
 <!-- here we should handle data -->
+<!--  det som ska skrivas ut -->
+<ul>
+  <li *ngFor="let todoItem of listOfTodos">
+    <app-print-list [todo]="todoItem" (done)="itemDone($event)" ></app-print-list>
+  </li>
+</ul>
+
+<hr>
+
+<div class="buttons">
+  <app-add-todo></app-add-todo>
+</div>
+
+<hr>
+
+<ul>
+    <li *ngFor="let doneItem of finishedTodos">
+      <app-done-todo [finished]="doneItem"></app-done-todo>
+    </li>
+
+</ul>
+
+<hr>

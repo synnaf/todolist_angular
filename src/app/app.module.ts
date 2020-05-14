@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { PrintListComponent } from './print-list/print-list.component';
 import { DataListComponent } from './data-list/data-list.component';
 import { AddTodoComponent } from './add-todo/add-todo.component';
+import { DoneTodoComponent } from './done-todo/done-todo.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PrintListComponent,
     DataListComponent,
-    AddTodoComponent
+    AddTodoComponent,
+    DoneTodoComponent
   ],
   imports: [
     BrowserModule,

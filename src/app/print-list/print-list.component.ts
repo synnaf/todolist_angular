@@ -8,7 +8,9 @@ import { TodoItem } from '../models/TodoItem';
 })
 export class PrintListComponent implements OnInit {
 
-  @Input() newTodo: TodoItem;
+  @Input() todo: TodoItem;
+
+  @Output() done = new EventEmitter<TodoItem>();
 
   // @Output() openForm = new EventEmitter<TodoItem>();
 
@@ -17,5 +19,9 @@ export class PrintListComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  // när denna funktion körs, skicka datan
+  isDone() {
+    this.done.emit(this.todo);
+  }
 
 }
