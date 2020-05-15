@@ -3,23 +3,24 @@
 <!--  det som ska skrivas ut -->
 <ul>
   <li *ngFor="let todoItem of listOfTodos">
-    <app-print-list [todo]="todoItem" (done)="itemDone($event)" ></app-print-list>
+    <app-print-list [todo]="todoItem" (done)="itemDone($event)" (removeItem)="removeItem($event)"></app-print-list>
   </li>
 </ul>
 
 <hr>
-
+<!-- denna knapp sorterar, kanske vill man sköta sorteringen någon annanstans?
+  inte i komponenten som hanterar datan?  -->
 <div class="buttons">
   <app-add-todo></app-add-todo>
+  <button (click)="sortAZ()">Sort</button>
 </div>
 
 <hr>
 
 <ul>
-    <li *ngFor="let doneItem of finishedTodos">
-      <app-done-todo [finished]="doneItem"></app-done-todo>
-    </li>
-
+  <li *ngFor="let doneItem of finishedTodos">
+    <app-done-todo [finished]="doneItem" (undo)="itemDone($event)"></app-done-todo>
+  </li>
 </ul>
 
 <hr>

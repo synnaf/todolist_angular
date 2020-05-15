@@ -1,7 +1,7 @@
 <span>
   <input type="checkbox" (click)="isDone()" />
   <p>{{ todo.todo }}, {{ todo.when }}</p>
- <button class="deleteItem">×</button>
+ <button class="deleteItem" (click)="remove()">×</button>
 </span>
 
 

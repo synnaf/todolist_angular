@@ -11,6 +11,7 @@ export class PrintListComponent implements OnInit {
   @Input() todo: TodoItem;
 
   @Output() done = new EventEmitter<TodoItem>();
+  @Output() removeItem = new EventEmitter<TodoItem>();
 
   // @Output() openForm = new EventEmitter<TodoItem>();
 
@@ -22,6 +23,10 @@ export class PrintListComponent implements OnInit {
   // när denna funktion körs, skicka datan
   isDone() {
     this.done.emit(this.todo);
+  }
+
+  remove() {
+    this.removeItem.emit(this.todo);
   }
 
 }

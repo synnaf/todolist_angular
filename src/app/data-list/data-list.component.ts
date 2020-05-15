@@ -10,18 +10,18 @@ export class DataListComponent implements OnInit {
 
   // denna data ska hämtas från formuläret
   listOfTodos: TodoItem[] = [
-    {todo: 'hejhgehj', when: new Date(), by: 'Me'},
-    {todo: 'hejdddd', when: new Date(), by: 'you'},
-    {todo: 'hejhddj', when: new Date(), by: 'Mssse'},
-    {todo: 'hejssssj', when: new Date(), by: 'dddMe'}
+    {todo: 'aaaaaa', when: new Date(), by: 'Me', isDone: false},
+    {todo: 'ssssss', when: new Date(), by: 'you', isDone: false},
+    {todo: 'ddddd', when: new Date(), by: 'Mssse', isDone: false},
+    {todo: 'ppppp', when: new Date(), by: 'dddMe', isDone: false}
   ];
 
   // denna data ska uppdateras när man trycker på "färdig"
   // från början borde den vara en tom lista
   finishedTodos: TodoItem[] = [
-    {todo: 'x', when: new Date(), by: 'Me'},
-    {todo: 'y', when: new Date(), by: 'Me'},
-    {todo: 'z', when: new Date(), by: 'Me'}
+    {todo: 'x', when: new Date(), by: 'Me', isDone: true},
+    {todo: 'y', when: new Date(), by: 'Me', isDone: true},
+    {todo: 'z', when: new Date(), by: 'Me', isDone: true}
   ];
 
   constructor() { }
@@ -31,19 +31,36 @@ export class DataListComponent implements OnInit {
   // här tar vi emot datan,
   // för att ändra hur den visas
   itemDone(done: TodoItem) {
-    console.log(done);
-    console.log(this.finishedTodos);
+    if(done.isDone === false) {
+      // ta reda på positionen
+      let listPosition = this.listOfTodos.indexOf(done);
+      // jag vill ta bort done från denna lista
+      this.listOfTodos.splice(listPosition, 1);
+      // jag vill flytta this.done till listan finishedTodos
+      this.finishedTodos.push(done);
+      // avsluta med att ändra värdet på isDone
+      done.isDone = true;
+    } else {
+      let listPosition = this.finishedTodos.indexOf(done);
+      this.finishedTodos.splice(listPosition, 1);
+      this.listOfTodos.push(done);
+      done.isDone = false;
+    }
+  }
 
-    // ta reda på positionen
-    let listPosition = this.listOfTodos.indexOf(done);
-
-    // //jag vill ta bort done från denna lista
-    this.listOfTodos.splice(listPosition, 1);
-
-    // jag vill flytta this.done till listan finishedTodos
-    this.finishedTodos.push(done);
+  removeItem(removeItem: TodoItem) {
+    let todo = this.listOfTodos.indexOf(removeItem);
+    this.listOfTodos.splice(todo, 1);
+    console.log(removeItem);
+  }
 
 
+
+  sortAZ() {
+    this.listOfTodos.sort( (a, b) => {
+      a.todo < b.todo
+      return -1;
+    });
   }
 
 
