@@ -1,17 +1,16 @@
 
-<div class="buttons">
-  <button (click)="showForm = !showForm">Add</button>
-</div>
+<button (click)="showForm = !showForm">Add</button>
 
 <!-- om man har tryckt på knappen, visa formuläret -->
-<form *ngIf="showForm">
+<div class="formContainer" *ngIf="showForm" novalidate>
 
-  <input type="text" placeholder="What"/>
-  <input type="text" placeholder="When" />
-  <input type="text" placeholder="Who"/>
+  <input type="text" placeholder="What" #inputWhat />
+  <input type="date" placeholder="When" #inputWhen />
+  <input type="text" placeholder="Who" #inputWho />
 
-  <!--  när man trycker på knappen så:  -->
-  <button>Add to list</button>
+  <!--  när man trycker på knappen så vill vi skicka ett item till
+  data-list -->
+  <button (click)="handleForm(inputWhat.value, inputWhen.value, inputWho.value)">Add to list</button>
 
-</form>
+  </div>
 

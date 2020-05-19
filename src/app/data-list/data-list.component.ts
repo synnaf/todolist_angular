@@ -54,8 +54,6 @@ export class DataListComponent implements OnInit {
     console.log(removeItem);
   }
 
-
-
   sortAZ() {
     this.listOfTodos.sort( (a, b) => {
       a.todo < b.todo
@@ -63,5 +61,11 @@ export class DataListComponent implements OnInit {
     });
   }
 
+
+  addItem(e: TodoItem) {
+    console.log("hello");
+    this.listOfTodos.push(e);
+    return this.listOfTodos;
+  }
 
 }

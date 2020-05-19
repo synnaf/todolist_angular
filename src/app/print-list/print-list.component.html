@@ -1,6 +1,6 @@
 <span>
   <input type="checkbox" (click)="isDone()" />
-  <p>{{ todo.todo }}, {{ todo.when }}</p>
+  <p>{{ todo.todo }}, {{ todo.when | date: 'short' }}</p>
  <button class="deleteItem" (click)="remove()">×</button>
 </span>
 

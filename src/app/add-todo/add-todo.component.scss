@@ -1,18 +1,6 @@
-.buttons {
-  display:flex;
-  flex-direction: row;
-  justify-content: space-around;
-  button {
-    width:30%;
-    border:2px solid black;
-    background-color:#EFFDE6;
-    font-size:1.2rem;
-    font-style: italic;
-    padding:5px;
-  }
-}
 
-form {
+
+.formContainer {
   display:flex;
   flex-direction: column;
   align-items: center;
