@@ -7,6 +7,7 @@ import { PrintListComponent } from './print-list/print-list.component';
 import { DataListComponent } from './data-list/data-list.component';
 import { AddTodoComponent } from './add-todo/add-todo.component';
 import { DoneTodoComponent } from './done-todo/done-todo.component';
+import { SortListComponent } from './sort-list/sort-list.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { DoneTodoComponent } from './done-todo/done-todo.component';
     PrintListComponent,
     DataListComponent,
     AddTodoComponent,
-    DoneTodoComponent
+    DoneTodoComponent,
+    SortListComponent
   ],
   imports: [
     BrowserModule,

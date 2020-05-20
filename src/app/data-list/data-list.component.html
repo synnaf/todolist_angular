@@ -1,7 +1,12 @@
 
-<!-- here we should handle data -->
-<!--  det som ska skrivas ut -->
-<ul>
+<!-- visa en text ifall det inte finns något i listan -->
+<div *ngIf="listOfTodos.length <= 0">
+  <span>
+    <p>Nothing to do!</p>
+  </span>
+</div>
+
+<ul *ngIf="listOfTodos.length >= 0">
   <li *ngFor="let todoItem of listOfTodos">
     <app-print-list [todo]="todoItem" (done)="itemDone($event)" (removeItem)="removeItem($event)"></app-print-list>
   </li>
@@ -11,8 +16,8 @@
 <!-- denna knapp sorterar, kanske vill man sköta sorteringen någon annanstans?
   inte i komponenten som hanterar datan?  -->
 <div class="buttons">
-  <app-add-todo (newTodo)="addItem($event)" ></app-add-todo>
-  <button (click)="sortAZ()">Sort</button>
+  <app-add-todo (newTodo)="addItem($event)"></app-add-todo>
+  <app-sort-list (sortList)="sort()"></app-sort-list>
 </div>
 <!--  -->
 <hr>

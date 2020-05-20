@@ -9,15 +9,14 @@ import { TodoItem } from '../models/TodoItem';
 export class PrintListComponent implements OnInit {
 
   @Input() todo: TodoItem;
-
   @Output() done = new EventEmitter<TodoItem>();
   @Output() removeItem = new EventEmitter<TodoItem>();
-
-  // @Output() openForm = new EventEmitter<TodoItem>();
 
   constructor() { }
 
   ngOnInit(): void {
+
+
   }
 
   // när denna funktion körs, skicka datan
