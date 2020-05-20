@@ -21,13 +21,14 @@ export class DataListComponent implements OnInit {
   storeItem() {
     localStorage.setItem('listOfTodos', JSON.stringify(this.listOfTodos));
   }
+  storeFinishedItem() {
+    localStorage.setItem('oldTodos', JSON.stringify(this.finishedTodos));
+  }
 
   addItem(e: TodoItem) {
-
-    this.storeItem();
     console.log(e);
     this.listOfTodos.push(e);
-    localStorage.setItem('listOfTodos', JSON.stringify(this.listOfTodos));
+    this.storeItem();
     return this.listOfTodos;
   }
 
@@ -36,8 +37,11 @@ export class DataListComponent implements OnInit {
       let listPosition = this.listOfTodos.indexOf(done);
       this.listOfTodos.splice(listPosition, 1);
       this.finishedTodos.push(done);
+      this.storeFinishedItem();
       done.isDone = true;
+
     } else {
+
       let listPosition = this.finishedTodos.indexOf(done);
       this.finishedTodos.splice(listPosition, 1);
       this.listOfTodos.push(done);
@@ -49,6 +53,8 @@ export class DataListComponent implements OnInit {
     this.listOfTodos.splice(todo, 1);
     console.log(removeItem);
     // här behöver jag tömma local storage när man trycker på delete
+    localStorage.removeItem('listOfTodos');
+    localStorage.setItem('listOfTodos', JSON.stringify(this.listOfTodos));
   }
   sort() {
     this.listOfTodos.sort( (a, b) => {
