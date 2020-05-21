@@ -9,17 +9,22 @@ import { TodoItem } from '../models/TodoItem';
 export class DoneTodoComponent implements OnInit {
 
   @Input() finished: TodoItem;
-
   @Output() undo = new EventEmitter<TodoItem>();
+  @Output() removeItem = new EventEmitter<TodoItem>();
+  @Output() removeOldItem = new EventEmitter<TodoItem>();
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
-  // när denna funktion körs, skicka datan
   redoItem() {
     this.undo.emit(this.finished);
+  }
+  remove() {
+    this.removeItem.emit(this.finished);
+  }
+  removeOld() {
+    this.removeOldItem.emit(this.finished);
   }
 
 }

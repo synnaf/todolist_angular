@@ -15,25 +15,18 @@ export class AddTodoComponent implements OnInit {
   // den här komponenten kommunicerar med klassen Todo
   constructor() { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
-  // när man trycker på add ska formuläret visas, showForm blir true
   showForm: boolean = false;
 
   handleForm(inputWhat: string, inputWhen: Date, inputWho: string ) {
-
-   console.log(inputWhen.valueOf);
-
-   let newItem: TodoItem = {
-    todo: inputWhat,
-    when: inputWhen,
-    by: inputWho,
-    isDone: false
-  };
-
-   this.newTodo.emit(newItem);
-
+    let newItem: TodoItem = {
+      todo: inputWhat,
+      when: inputWhen,
+      by: inputWho,
+      isDone: false
+    };
+    this.newTodo.emit(newItem);
   }
 
 

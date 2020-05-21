@@ -14,10 +14,7 @@ export class PrintListComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
-
-
-  }
+  ngOnInit(): void {}
 
   // när denna funktion körs, skicka datan
   isDone() {

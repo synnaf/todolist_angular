@@ -2,6 +2,6 @@
 <span>
   <button class="redoItem" (click)="redoItem()">&#8617;</button>
   <p>{{ finished.todo }}, {{ finished.when | date: 'short' }}</p>
-  <button class="deleteItem">×</button>
+  <button class="deleteItem" (click)="removeOld()">×</button>
 </span>
 

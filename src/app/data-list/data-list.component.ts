@@ -8,15 +8,12 @@ import { TodoItem } from '../models/TodoItem';
 })
 export class DataListComponent implements OnInit {
 
-  // denna data ska hämtas från formuläret
   listOfTodos: TodoItem[] = JSON.parse(localStorage.getItem('listOfTodos')) || [];
-  finishedTodos: TodoItem[] = [];
+  finishedTodos: TodoItem[] = JSON.parse(localStorage.getItem('oldTodos')) || [];
 
   constructor() { }
 
-  ngOnInit(): void {
-    console.log(this.listOfTodos);
-  }
+  ngOnInit(): void {}
 
   storeItem() {
     localStorage.setItem('listOfTodos', JSON.stringify(this.listOfTodos));
@@ -24,37 +21,37 @@ export class DataListComponent implements OnInit {
   storeFinishedItem() {
     localStorage.setItem('oldTodos', JSON.stringify(this.finishedTodos));
   }
-
   addItem(e: TodoItem) {
-    console.log(e);
     this.listOfTodos.push(e);
     this.storeItem();
     return this.listOfTodos;
   }
-
   itemDone(done: TodoItem) {
     if(done.isDone === false) {
+      done.isDone = true;
       let listPosition = this.listOfTodos.indexOf(done);
       this.listOfTodos.splice(listPosition, 1);
       this.finishedTodos.push(done);
-      this.storeFinishedItem();
-      done.isDone = true;
-
+      localStorage.setItem('oldTodos', JSON.stringify(this.finishedTodos));
+      localStorage.setItem('listOfTodos', JSON.stringify(this.listOfTodos));
     } else {
-
+      done.isDone = false;
       let listPosition = this.finishedTodos.indexOf(done);
       this.finishedTodos.splice(listPosition, 1);
       this.listOfTodos.push(done);
-      done.isDone = false;
+      localStorage.setItem('listOfTodos', JSON.stringify(this.listOfTodos));
+      localStorage.setItem('oldTodos', JSON.stringify(this.finishedTodos));
     }
   }
   removeItem(removeItem: TodoItem) {
     let todo = this.listOfTodos.indexOf(removeItem);
     this.listOfTodos.splice(todo, 1);
-    console.log(removeItem);
-    // här behöver jag tömma local storage när man trycker på delete
-    localStorage.removeItem('listOfTodos');
     localStorage.setItem('listOfTodos', JSON.stringify(this.listOfTodos));
+  }
+  removeOldItem(removeOldItem: TodoItem) {
+    let oldTodo = this.finishedTodos.indexOf(removeOldItem);
+    this.finishedTodos.splice(oldTodo, 1);
+    localStorage.setItem('oldTodos', JSON.stringify(this.finishedTodos));
   }
   sort() {
     this.listOfTodos.sort( (a, b) => {
