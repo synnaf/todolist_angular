@@ -1,2 +1,14 @@
-
+h1 {
+color:darkorange;
+@keyframes flashColor {
+  from {
+    opacity: 1;
+    color: black;
+  }
+  to {
+    opacity: 0.5;
+    color: darkorange;
+  }
+}
+}
 

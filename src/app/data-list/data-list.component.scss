@@ -1,12 +1,21 @@
-div {
+section{
   display:flex;
   flex-direction: row;
   justify-content: center;
-  padding-top:20px;
-  padding-bottom:30px;
+  text-align: center;
   border-top:2px solid black;
   border-bottom:2px solid black;
+  .buttons {
+    display:flex;
+    flex-direction: column;
+    align-self: flex-start;
+    width:50%;
+    padding-top:20px;
+    padding-bottom:30px;
+
+  }
 }
+
 ul {
   text-align:left;
   li {

@@ -12,7 +12,8 @@ export class AddTodoComponent implements OnInit {
   @Input() new: TodoItem;
   @Output() newTodo = new EventEmitter<TodoItem>();
 
-  // den här komponenten kommunicerar med klassen Todo
+  dropColor: string;
+
   constructor() { }
 
   ngOnInit(): void {}
@@ -27,6 +28,7 @@ export class AddTodoComponent implements OnInit {
       isDone: false
     };
     this.newTodo.emit(newItem);
+
   }
 
 

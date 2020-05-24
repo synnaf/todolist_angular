@@ -10,10 +10,14 @@
   </li>
 </ul>
 
+<section>
+  <div class="buttons">
+    <app-add-todo (newTodo)="addItem($event)"></app-add-todo>
+</div>
 <div class="buttons">
-  <app-add-todo (newTodo)="addItem($event)"></app-add-todo>
   <app-sort-list (sortList)="sort()"></app-sort-list>
 </div>
+</section>
 
 <ul>
   <li *ngFor="let doneItem of finishedTodos">

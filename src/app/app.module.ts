@@ -8,6 +8,8 @@ import { DataListComponent } from './data-list/data-list.component';
 import { AddTodoComponent } from './add-todo/add-todo.component';
 import { DoneTodoComponent } from './done-todo/done-todo.component';
 import { SortListComponent } from './sort-list/sort-list.component';
+import { ShowFormDirective } from './directives/showForm/show-form.directive';
+import { FlashDirective } from './directives/changeHeadline/flash.directive';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { SortListComponent } from './sort-list/sort-list.component';
     DataListComponent,
     AddTodoComponent,
     DoneTodoComponent,
-    SortListComponent
+    SortListComponent,
+    ShowFormDirective,
+    FlashDirective
   ],
   imports: [
     BrowserModule,
