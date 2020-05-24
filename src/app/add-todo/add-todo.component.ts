@@ -12,13 +12,19 @@ export class AddTodoComponent implements OnInit {
   @Input() new: TodoItem;
   @Output() newTodo = new EventEmitter<TodoItem>();
 
-  dropColor: string;
+  dropColor: string = 'lightgreen';
 
   constructor() { }
 
   ngOnInit(): void {}
 
   showForm: boolean = false;
+  addButton = true;
+
+  enableButton(inputEvent: KeyboardEvent, inputWhat: string) {
+    this.addButton = false;
+    if (inputWhat === '') { this.addButton = true; }
+  }
 
   handleForm(inputWhat: string, inputWhen: Date, inputWho: string ) {
     let newItem: TodoItem = {
@@ -28,7 +34,7 @@ export class AddTodoComponent implements OnInit {
       isDone: false
     };
     this.newTodo.emit(newItem);
-
+    this.addButton = true;
   }
 
 

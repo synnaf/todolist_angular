@@ -16,7 +16,6 @@ export class PrintListComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  // när denna funktion körs, skicka datan
   isDone() {
     this.done.emit(this.todo);
   }

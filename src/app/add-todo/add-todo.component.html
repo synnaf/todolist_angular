@@ -1,15 +1,14 @@
-<button (click)="showForm = !showForm; dropColor='lightgreen' ">Add</button>
+<button (click)="showForm = !showForm;">Add</button>
     <div class="formContainer" *ngIf="showForm"  [appShowForm]="dropColor">
-      <input type="text" placeholder="What" #inputWhat  />
+      <input type="text" placeholder="What" #inputWhat (input)="enableButton($event, inputWhat.value)"/>
       <input type="date" placeholder="When" #inputWhen />
       <input type="text" placeholder="Who" #inputWho />
-      <button (click)="handleForm(inputWhat.value, inputWhen.value, inputWho.value);
-      inputWhen.value='';
+      <button type="button" *ngIf="!addButton" (click)="handleForm(inputWhat.value, inputWhen.value, inputWho.value);
+      inputWhen.value='' ;
       inputWhat.value='';
       inputWho.value=''; ">
         Add to list
       </button>
     </div>
-
 
 
